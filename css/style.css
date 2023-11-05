@@ -136,6 +136,11 @@ h1,
 	line-height: 1.30556;
 }
 
+.twelve-months {
+	color: var(--text-twelve-months);
+	font-size: 25px;
+    padding: 0 0px 0px 43px;
+}
 @media (min-width: 992px) {
 	h1,
 	.heading-1 {
@@ -10279,8 +10284,9 @@ h2.title-modern > span {
 
 @media (min-width: 992px) {
 	.desktop .clients-classic img {
-		will-change: transform;
+		/* will-change: transform; */
 		transition: all .3s ease;
+		filter: grayscale(100%);
 	}
 	.desktop .clients-classic:hover {
 		border-color: #151515;
@@ -10292,6 +10298,7 @@ h2.title-modern > span {
 	.desktop .clients-classic:hover img {
 		opacity: 1;
 		transform: scale(0.9);
+		filter: grayscale(0%);
 	}
 	.desktop .context-dark .clients-classic:hover, .desktop .bg-gray-dark .clients-classic:hover, .desktop .bg-primary .clients-classic:hover {
 		border-color: rgba(255, 255, 255, 0.6);
