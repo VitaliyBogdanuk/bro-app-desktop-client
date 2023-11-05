@@ -2539,7 +2539,7 @@ hr {
 	overflow: hidden;
 	display: inline-block;
 	min-width: 200px;
-	padding: 17px 33px 15px;
+	padding: 17px 10px 15px;
 	font-size: 14px;
 	line-height: 1.34;
 	border: 2px solid;
@@ -2620,7 +2620,7 @@ hr {
 }
 
 .button-primary:hover, .button-primary:active {
-	color:var(--buttom-text-color);
+	color:var(----buttom-text-color-focus);
 	background-color: var(--buttom-color-defors);
 	border-color: var(--buttom-color-defors);
 }
@@ -2672,7 +2672,7 @@ hr {
 }
 
 .button-primary-outline:hover, .button-primary-outline:active {
-	color: var(--buttom-text-color);
+	color: var(--buttom-text-color-focus);
 	background-color: var(--button-color-focus);
 	border-color: var(--button-color-focus);
 }
@@ -2828,7 +2828,7 @@ hr {
 }
 
 .button-white:hover, .button-white:active {
-	color: #ffffff;
+	color: var(--buttom-text-color-focus)
 	background-color: var(--button-color-focus);
 	border-color: var(--button-color-focus);
 }
