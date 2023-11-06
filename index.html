@@ -46,7 +46,7 @@
                           <li class="rd-navbar-share-list-item"><a class="icon fa fa-facebook" href="http://www.youtube.com/watch?v=T05U8M6TzOI&list=PLZz-Gt4dd-LTeACXe7zLus9Bm_xlNAqin&index=7"></a></li>
                           <li class="rd-navbar-share-list-item"><a class="icon fa fa-twitter" href="#"></a></li>
                           <li class="rd-navbar-share-list-item"><a class="icon fa fa-google-plus" href="#"></a></li>
-                          <li class="rd-navbar-share-list-item"><a class="icon fa fa-instagram" href="#"></a></li>
+                          <li class="rd-navbar-share-list-item"><a class="icon fa fa-instagram" href="https://www.linkedin.com/shareArticle?url=https://bro.savvydev.tech"></a></li>
                         </ul>
                       </div>
                       <ul class="rd-navbar-nav">
@@ -727,47 +727,5 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Select all forms you want to apply the email sending functionality to
-        const forms = document.querySelectorAll('form');
-
-        forms.forEach(function(form) {
-          form.addEventListener('submit', function (event) {
-            // Prevent the default form submission
-            event.preventDefault();
-
-            // Collect input values
-            const name = form.elements["name"].value.trim();
-            const email = form.elements["email"].value.trim();
-            const msg = form.elements["message"].value.trim();
-            const phone = form.elements["phone"].value.trim();
-
-            // Check for empty fields
-            if (!name || !email || !msg || !phone) {
-                alert("All fields are mandatory");
-                return;
-            }
-
-            // Sending email
-            Email.send({
-                SecureToken : "ac64011d-d814-4a30-9537-065723736fd2",
-                To: "savvydev.tech@gmail.com",
-                From: email,
-                Subject: "Contact Us Query By the Customer",
-                Body: `${msg}<br>${name}<br>${phone}`
-            }).then(message => {
-                alert("The email successfully sent");
-                // Consider resetting the form if needed
-                form.reset();
-            }).catch(error => {
-                alert("Failed to send the email");
-                console.error("Email send error:", error);
-            });
-          });
-        });
-      });
-    </script>
-
   </body>
 </html>
