@@ -1026,7 +1026,7 @@
 						output.addClass("active");
 					}
 				} else {
-				return false;
+					return false;
 				}
 
 				// Prevent the default form submission
@@ -1123,12 +1123,10 @@
     if (plugins.customToggle.length) {
       for (var i = 0; i < plugins.customToggle.length; i++) {
         var $this = $(plugins.customToggle[i]);
-
         $this.on(
           "click",
           $.proxy(function (event) {
             event.preventDefault();
-
             var $ctx = $(this);
             $($ctx.attr("data-custom-toggle")).add(this).toggleClass("active");
           }, $this)
