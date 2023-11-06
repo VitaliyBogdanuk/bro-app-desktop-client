@@ -13142,13 +13142,14 @@ html.tablet .ui-to-top {
 	transform: translateX(20px);
 	will-change: transform;
 	transition: all .3s ease;
+    z-index: 100;
 }
 
 .rd-navbar-static .rd-navbar-share-list.active {
 	pointer-events: auto;
 	background: #ffffff;
 	transition-delay: 0s;
-	z-index: 1;
+	z-index: 100;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.17);
 	overflow: hidden;
 }
@@ -20178,4 +20179,35 @@ disabled look for disabled choices in the results dropdown
 
 .modal-body {
 	padding: 29px 30px 35px;
+}
+
+.install-app{
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: var(--background-liste);
+}
+
+.install-app div .qr-code img{
+    height: 250px;
+}
+.install-app div{
+    padding: 20px;
+}
+.install-app div .instructions {
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .install-app div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .install-app div .instructions {
+    padding: 100px 30px;
+
+    }
 }

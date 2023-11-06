@@ -1480,3 +1480,33 @@
     }
   });
 })();
+
+// sharing on twitter
+function shareOnTwitter() {
+  let title = encodeURIComponent(
+    document.querySelector('meta[name="twitter:title"]').getAttribute("content")
+  );
+  let image = encodeURIComponent(
+    document.querySelector('meta[name="twitter:image"]').getAttribute("content")
+  );
+  let description = encodeURIComponent(
+    document
+      .querySelector('meta[name="twitter:description"]')
+      .getAttribute("content")
+  );
+  let url = encodeURIComponent(
+    document.querySelector('meta[name="twitter:url"]').getAttribute("content")
+  );
+
+  let twitterUrl =
+    "https://twitter.com/intent/tweet?url=" +
+    url +
+    "&text=" +
+    description +
+    "&title=" +
+    title +
+    "&image=" +
+    image;
+
+  window.open(twitterUrl, "_blank");
+}
