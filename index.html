@@ -618,7 +618,7 @@
               <p>Якщо у вас виникли запитання, просто заповніть контактну форму, і ми відповімо вам найближчим часом.</p>
             </div>
           </article>
-          <form class="rd-form rd-form-variant-2 rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+          <form class="rd-form rd-form-variant-2 rd-mailform" data-form-output="form-output-global" data-form-type="contact" onsubmit="return false">
             <div class="row row-14 gutters-14">
               <div class="col-md-4">
                 <div class="form-wrap">
@@ -687,7 +687,7 @@
               <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form class="rd-form rd-form-variant-2 rd-mailform" data-form-output="form-output-global" data-form-type="contact-modal" method="post" action="bat/rd-mailform.php">
+              <form class="rd-form rd-form-variant-2 rd-mailform" data-form-output="form-output-global" data-form-type="contact-modal" onsubmit="return false">
                 <div class="row row-14 gutters-14">
                   <div class="col-12">
                     <div class="form-wrap">
@@ -726,6 +726,50 @@
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
-    <!-- coded by Himic-->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Select all forms you want to apply the email sending functionality to
+        const forms = document.querySelectorAll('form');
+
+        forms.forEach(function(form) {
+          form.addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Collect input values
+            const name = form.elements["name"].value.trim();
+            const email = form.elements["email"].value.trim();
+            const msg = form.elements["message"].value.trim();
+            const phone = form.elements["phone"].value.trim();
+
+            // Check for empty fields
+            if (!name || !email || !msg || !phone) {
+                alert("All fields are mandatory");
+                return;
+            }
+
+            // Sending email
+            Email.send({
+                Host: "sandbox.smtp.mailtrap.io",
+                Username: "c552cc839557f1",
+                Password: "d3863a45f3939c",
+                To: "savvydev.tech@gmail.com",
+                From: email,
+                Subject: "Contact Us Query By the Customer",
+                Body: `${msg}<br>${name}<br>${phone}`
+            }).then(message => {
+                alert("The email successfully sent");
+                // Consider resetting the form if needed
+                form.reset();
+            }).catch(error => {
+                alert("Failed to send the email");
+                console.error("Email send error:", error);
+            });
+          });
+        });
+      });
+    </script>
+
   </body>
 </html>
