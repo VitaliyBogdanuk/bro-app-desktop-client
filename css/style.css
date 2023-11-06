@@ -1073,6 +1073,8 @@ a[href*='tel'], a[href*='mailto'] {
 	.desktop .box-contacts {
 		box-shadow: none;
 		border: 1px solid #e1e1e1;
+		border-color: transparent;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.17);
 	}
 	.desktop .box-contacts-decor {
 		margin-top: 17px;
