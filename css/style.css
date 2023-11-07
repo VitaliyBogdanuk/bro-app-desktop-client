@@ -169,7 +169,7 @@ h3,
 
 h4,
 .heading-4 {
-	font-size: 21px;
+	font-size: 19px;
 	line-height: 1.71429;
 }
 
@@ -1073,6 +1073,8 @@ a[href*='tel'], a[href*='mailto'] {
 	.desktop .box-contacts {
 		box-shadow: none;
 		border: 1px solid #e1e1e1;
+		border-color: transparent;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.17);
 	}
 	.desktop .box-contacts-decor {
 		margin-top: 17px;
@@ -9893,7 +9895,7 @@ h2.title-modern > span {
 	left: 0;
 	bottom: 27px;
 	width: 80%;
-	min-width: 300px;
+	min-width: 320px;
 	margin-left: -25px;
 	padding: 15px 20px 15px 50px;
 	transition: all .3s ease;
@@ -9965,7 +9967,7 @@ h2.title-modern > span {
 
 @media (min-width: 1200px) and (max-width: 1399px) {
 	.team-classic-lg .team-classic-caption {
-		min-width: 260px;
+		min-width: 320px;
 	}
 }
 
