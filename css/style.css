@@ -20187,28 +20187,39 @@ disabled look for disabled choices in the results dropdown
     flex-direction: column;
     align-items: center;
     background-color: var(--background-liste);
+}
+    
+.install-app .qr-instructions .qr-code img{
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.install-app .qr-instructions{
+    padding: 20px;
+    background-color: #ffffff;;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.install-app .qr-instructions .instructions {
+    text-align: left;
+    margin-top: 20px;
+}
+    
+@media (min-width: 768px) {
+
+    .install-app .qr-instructions{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 20px auto 0 auto;
     }
     
-    .install-app div .qr-code img{
-        height: 250px;
-    }
-    .install-app div{
-        padding: 20px;
-    }
-    .install-app div .instructions {
-        text-align: left;
-    }
-    
-    @media (min-width: 768px) {
-        .install-app div{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin: 0 auto;
-        }
-    
-        .install-app div .instructions {
+    .install-app .qr-instructions .instructions {
         padding: 100px 30px;
     
-        }
     }
+
+}
+
