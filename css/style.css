@@ -141,6 +141,11 @@ h1,
 	font-size: 25px;
     padding: 0 0px 0px 43px;
 }
+
+.dekstop-logo{
+	display: none;
+}
+
 @media (min-width: 992px) {
 	h1,
 	.heading-1 {
@@ -152,6 +157,10 @@ h2,
 .heading-2 {
 	font-size: 36px;
 	line-height: 1.66667;
+}
+
+.dekstop-logo{
+	display: none;
 }
 
 @media (min-width: 992px) {
@@ -559,6 +568,14 @@ a[href*='tel'], a[href*='mailto'] {
 @media (min-width: 1200px) {
 	.box-icon-creative-text {
 		max-width: 94%;
+	}
+
+	.dekstop-logo {
+		display: flex;
+	}
+	
+	.mobail-logo {
+		display: none;
 	}
 }
 
@@ -13628,15 +13645,17 @@ html.tablet .ui-to-top {
 }
 
 .rd-navbar-fixed .rd-navbar-panel {
-	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	z-index: 1030;
-	display: flex;
-	align-items: center;
-	height: 56px;
-	padding: 4px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1030;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding: 4px;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .rd-navbar-fixed .rd-navbar-nav-wrap {
