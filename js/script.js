@@ -1005,46 +1005,46 @@
 
     // RD Mailform
     if (plugins.rdMailForm.length) {
-      	var i,j,k;
+      var i, j, k;
 
-      	for (i = 0; i < plugins.rdMailForm.length; i++) {
-			var $form = $(plugins.rdMailForm[i]);
-			let counter = i;
-			$form[0].addEventListener('submit', function (event) {
-				var form = $(plugins.rdMailForm[counter]),
-				inputs = form.find("[data-constraints]"),
-				output = $("#" + form.attr("data-form-output"));
+      for (i = 0; i < plugins.rdMailForm.length; i++) {
+        var $form = $(plugins.rdMailForm[i]);
+        let counter = i;
+        $form[0].addEventListener("submit", function (event) {
+          var form = $(plugins.rdMailForm[counter]),
+            inputs = form.find("[data-constraints]"),
+            output = $("#" + form.attr("data-form-output"));
 
-				output.removeClass("active error success");
+          output.removeClass("active error success");
 
-				if (isValidated(inputs)) {
-					form.addClass("form-in-process");
-					if (output.hasClass("snackbars")) {
-						output.html(
-							'<p><span class="icon text-middle fa fa-circle-o-notch fa-spin icon-xxs"></span><span>Sending</span></p>'
-						);
-						output.addClass("active");
-					}
-				} else {
-					return false;
-				}
+          if (isValidated(inputs)) {
+            form.addClass("form-in-process");
+            if (output.hasClass("snackbars")) {
+              output.html(
+                '<p><span class="icon text-middle fa fa-circle-o-notch fa-spin icon-xxs"></span><span>Sending</span></p>'
+              );
+              output.addClass("active");
+            }
+          } else {
+            return false;
+          }
 
-				// Prevent the default form submission
-				event.preventDefault();
+          // Prevent the default form submission
+          event.preventDefault();
 
-				// Collect input values
-				const name = form[0].elements["name"].value.trim();
-				const email = form[0].elements["email"].value.trim();
-				const msg = form[0].elements["message"].value.trim();
-				const phone = form[0].elements["phone"].value.trim();
+          // Collect input values
+          const name = form[0].elements["name"].value.trim();
+          const email = form[0].elements["email"].value.trim();
+          const msg = form[0].elements["message"].value.trim();
+          const phone = form[0].elements["phone"].value.trim();
 
-				// Sending email
-				Email.send({
-					SecureToken : "ac64011d-d814-4a30-9537-065723736fd2",
-					To: "v.bogdanuk@gmail.com",
-					From: "info@savvydev.tech",
-					Subject: "B.R.O Contact Us Form",
-					Body: `
+          // Sending email
+          Email.send({
+            SecureToken: "ac64011d-d814-4a30-9537-065723736fd2",
+            To: "v.bogdanuk@gmail.com",
+            From: "info@savvydev.tech",
+            Subject: "B.R.O Contact Us Form",
+            Body: `
 						<div style="font-family: sans-serif; color: #111;">
 							<h2 style="color: #f06;">Contact Form Submission</h2>
 							<p><strong>Name:</strong> ${name}</p>
@@ -1052,71 +1052,70 @@
 							${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
 							<p><strong>Message:</strong> ${msg.replace(/\n/g, "<br>")}</p>
 						</div>
-					`
-				}).then(message => {
-					if (isNoviBuilder) return;
+					`,
+          })
+            .then((message) => {
+              if (isNoviBuilder) return;
 
-					var form = $(plugins.rdMailForm[counter]),
-					output = $("#" + form.attr("data-form-output")),
-					select = form.find("select");
+              var form = $(plugins.rdMailForm[counter]),
+                output = $("#" + form.attr("data-form-output")),
+                select = form.find("select");
 
-					form.addClass("success").removeClass("form-in-process");
-					
-					let result = message === 'OK' ? "Successfully sent!" : message;
-					output.text(result);
+              form.addClass("success").removeClass("form-in-process");
 
-					if (message === 'OK') {
-						if (output.hasClass("snackbars")) {
-							output.html(
-							'<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' +
-								result +
-								"</span></p>"
-							);
-						} else {
-							output.addClass("active success");
-						}
-					} else {
-						if (output.hasClass("snackbars")) {
-							output.html(
-							' <p class="snackbars-left"><span class="icon icon-xxs mdi mdi-alert-outline text-middle"></span><span>' +
-								result +
-								"</span></p>"
-							);
-						} else {
-							output.addClass("active error");
-						}
-					}
+              let result = message === "OK" ? "Successfully sent!" : message;
+              output.text(result);
 
-					form.clearForm();
+              if (message === "OK") {
+                if (output.hasClass("snackbars")) {
+                  output.html(
+                    '<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' +
+                      result +
+                      "</span></p>"
+                  );
+                } else {
+                  output.addClass("active success");
+                }
+              } else {
+                if (output.hasClass("snackbars")) {
+                  output.html(
+                    ' <p class="snackbars-left"><span class="icon icon-xxs mdi mdi-alert-outline text-middle"></span><span>' +
+                      result +
+                      "</span></p>"
+                  );
+                } else {
+                  output.addClass("active error");
+                }
+              }
 
-					if (select.length) {
-						select.select2("val", "");
-					}
+              form.clearForm();
 
-					form.find("input, textarea").trigger("blur");
+              if (select.length) {
+                select.select2("val", "");
+              }
 
-					setTimeout(function () {
-						output.removeClass("active error success");
-						form.removeClass("success");
-					}, 3500);
-				}).catch(error => {
-					if (isNoviBuilder) return;
+              form.find("input, textarea").trigger("blur");
 
-					var output = $(
-						"#" +
-						$(plugins.rdMailForm[counter]).attr(
-							"data-form-output"
-						)
-					),
-					form = $(plugins.rdMailForm[counter]);
+              setTimeout(function () {
+                output.removeClass("active error success");
+                form.removeClass("success");
+              }, 3500);
+            })
+            .catch((error) => {
+              if (isNoviBuilder) return;
 
-					output.text("Aw, snap! Something went wrong.");
-					form.removeClass("form-in-process");
+              var output = $(
+                  "#" + $(plugins.rdMailForm[counter]).attr("data-form-output")
+                ),
+                form = $(plugins.rdMailForm[counter]);
 
-					console.error("Email send error:", error);
-				});
-			});
-      	}
+              output.text("Aw, snap! Something went wrong.");
+              form.removeClass("form-in-process");
+
+              console.error("Email send error:", error);
+            });
+        });
+      }
     }
 
     // Custom Toggles
@@ -1333,3 +1332,32 @@
     }
   });
 })();
+// sharing on twitter
+function shareOnTwitter() {
+  let title = encodeURIComponent(
+    document.querySelector('meta[name="twitter:title"]').getAttribute("content")
+  );
+  let image = encodeURIComponent(
+    document.querySelector('meta[name="twitter:image"]').getAttribute("content")
+  );
+  let description = encodeURIComponent(
+    document
+      .querySelector('meta[name="twitter:description"]')
+      .getAttribute("content")
+  );
+  let url = encodeURIComponent(
+    document.querySelector('meta[name="twitter:url"]').getAttribute("content")
+  );
+
+  let twitterUrl =
+    "https://twitter.com/intent/tweet?url=" +
+    url +
+    "&text=" +
+    description +
+    "&title=" +
+    title +
+    "&image=" +
+    image;
+
+  window.open(twitterUrl, "_blank");
+}
