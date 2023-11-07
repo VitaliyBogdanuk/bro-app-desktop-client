@@ -20227,9 +20227,35 @@ disabled look for disabled choices in the results dropdown
     text-align: left;
     margin-top: 20px;
 }
-    
-@media (min-width: 768px) {
 
+ .section-first .small-qr{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.section-first .small-qr .instructions{
+    margin-top: 20px;
+    text-align: left;
+}
+
+.section-first .small-qr .qr-code img{
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} 
+   
+@media (min-width: 430px) {
+    .section-first .small-qr{
+        width: 390px;
+    }
+}
+
+@media (min-width: 768px) {
     .install-app .qr-instructions{
         display: flex;
         flex-direction: row;
@@ -20243,4 +20269,40 @@ disabled look for disabled choices in the results dropdown
     }
 
 }
+
+@media (min-width: 991px) {
+    .section-first .small-qr{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 250px;
+        padding: 0px 10px ;
+        background-color: #ffffff;
+        margin: 0 auto;
+    }
+
+    .section-first .small-qr .instructions{
+        margin-left: 10px;
+    }
+    
+    .section-first .small-qr .qr-code img{
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (min-width: 1200px) {
+    .section-first .small-qr{
+        width: 570px;
+        height: 185px;
+    }
+
+    .section-first .small-qr .qr-code img{
+        width: 180px;
+    }
+
+}
+
 
