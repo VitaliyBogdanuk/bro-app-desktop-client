@@ -368,6 +368,15 @@ a[href*='tel'], a[href*='mailto'] {
 	.container + .link-classic {
 		margin-top: 56px;
 	}
+
+	.dekstop-logo {
+		display: flex;
+	}
+	
+	.mobail-logo {
+		display: none;
+	}
+
 }
 
 .gallery-title,
@@ -570,13 +579,6 @@ a[href*='tel'], a[href*='mailto'] {
 		max-width: 94%;
 	}
 
-	.dekstop-logo {
-		display: flex;
-	}
-	
-	.mobail-logo {
-		display: none;
-	}
 }
 
 .box-icon-modern {
