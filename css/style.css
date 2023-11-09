@@ -1062,6 +1062,9 @@ a[href*='tel'], a[href*='mailto'] {
 
 .box-contacts-body {
 	max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .box-contacts-icon {
@@ -2646,17 +2649,13 @@ hr {
 }
 
 .button-primary:hover, .button-primary:active {
-	color:var(----buttom-text-color-focus);
+	color:var(--buttom-text-color-focus);
 	background-color: var(--buttom-color-defors);
 	border-color: var(--buttom-color-defors);
 }
 
 .button-primary.button-ujarak::before {
 	background: var(--buttom-color-defors);
-}
-
-.button-primary.button-pipaluk, .button-primary.button-pipaluk:focus {
-	background: transparent;
 }
 
 .button-primary.button-pipaluk::before, .button-primary.button-pipaluk:focus::before {
@@ -2666,11 +2665,6 @@ hr {
 
 .button-primary.button-pipaluk::after, .button-primary.button-pipaluk:focus::after {
 	border-color: var(--buttom-color-defors);
-}
-
-.button-primary.button-pipaluk:hover, .button-primary.button-pipaluk:active {
-	/* color: var(--buttom-color-defors);
-	background: transparent; */
 }
 
 .button-primary.button-wapasha, .button-primary.button-wapasha:focus {
@@ -20260,6 +20254,9 @@ disabled look for disabled choices in the results dropdown
 }
 
 @media (min-width: 768px) {
+    .quote-modern.quote-modern-custom{
+        height: 350px;
+    }
     .install-app .qr-instructions{
         display: flex;
         flex-direction: row;
@@ -20298,6 +20295,9 @@ disabled look for disabled choices in the results dropdown
 }
 
 @media (min-width: 1200px) {
+    .quote-modern.quote-modern-custom{
+        height: 370px;
+    }
     .section-first .small-qr{
         width: 570px;
         height: 185px;
