@@ -146,6 +146,10 @@ h1,
 	display: none;
 }
 
+.button-gr{
+	background-image: url(images/qr_code.jpg);
+}
+
 @media (min-width: 992px) {
 	h1,
 	.heading-1 {
@@ -2665,8 +2669,8 @@ hr {
 }
 
 .button-primary.button-pipaluk:hover, .button-primary.button-pipaluk:active {
-	color: var(--buttom-color-defors);
-	background: transparent;
+	/* color: var(--buttom-color-defors);
+	background: transparent; */
 }
 
 .button-primary.button-wapasha, .button-primary.button-wapasha:focus {
