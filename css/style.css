@@ -146,6 +146,10 @@ h1,
 	display: none;
 }
 
+.button-gr{
+	background-image: url(images/qr_code.jpg);
+}
+
 @media (min-width: 992px) {
 	h1,
 	.heading-1 {
